@@ -80,7 +80,7 @@ Para llevar a cabo esta práctica, el estudiante debe tener conocimientos básic
 - Documentación oficial de NGINX
 
 - Videos introductorios en YouTube sobre Docker y NGINX
-## Procedimiento 8.
+## 8. Procedimiento
 ### Paso 1: **Entrar a Docker Playground**
 Iniciamos sesión y si no tenemos cuenta procedemos a crearnos una.
 
@@ -179,9 +179,9 @@ Esto permite comprobar el uso de volúmenes para modificar el contenido servido 
 [Link del audio explicativo](https://drive.google.com/file/d/1qTz_8VBAiKLS-pXEGWZwkO25maMjpY-7/view?usp=sharing)
 ## 11. Bibliografía
 - *Docker Desktop (2025).* **Recuperado de:** <https://docs.docker.com/desktop/>
-- *Gustavo B. (2025).* **Recuperado de:** <https://www.hostinger.com/es/tutoriales/que-es-nginx>
+- *Gustavo B. ¿Qué es NGINX y cómo funciona? (2025).* **Recuperado de:** <https://www.hostinger.com/es/tutoriales/que-es-nginx>
 - *Nginx documentation (s.f).* **Recuperado de:** <https://nginx.org/en/docs/>
-- *Comandos Docker: ejemplos y funciones (2025)* **Recuperado de:** <https://www.hostinger.com/es/tutoriales/comandos-docker>
+- *Diego B. Comandos Docker: ejemplos y funciones (2025)* **Recuperado de:** <https://www.hostinger.com/es/tutoriales/comandos-docker>
 
 
 
