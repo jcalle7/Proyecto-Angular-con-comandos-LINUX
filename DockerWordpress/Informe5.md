@@ -1,7 +1,7 @@
 # Práctica WordPress con Docker.
 ## 1. Título.
 Crear contenedores para un sitio WordPress, utilizando comandos de Docker.
-## 2. Tiempre de duración.
+## 2. Tiempo de duración.
 Duración total de la práctica: **45 minutos.**
 ## 3. Fundamentos.
 **¿Qué es Docker y por es importarte?**
