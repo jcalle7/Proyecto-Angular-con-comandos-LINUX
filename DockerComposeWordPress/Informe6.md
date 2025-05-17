@@ -311,7 +311,9 @@ La finalización de esta práctica trae consigo:
 
 - *Primeros Pasos WordPress (2025).* **Recuperado de:**
 <https://wordpress.com/es/support/category/primeros-pasos/>
+
 - *Docker Compose (2025).* **Recuperado de:** <https://docs.docker.com/compose/> 
+
 
 
 
