@@ -118,22 +118,22 @@ Comprobamos que tenemos Docker instalado correctamente
 
 Pegamos estas lineas de codigo
 ```
-# Etapa 1: Compilar la app
-FROM maven:3.9.5-eclipse-temurin-17 AS builder
+# Etapa 1: Build con Java 21
+FROM maven:3.9.5-eclipse-temurin-21 AS builder
 WORKDIR /app
 COPY . .
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-# Etapa 2: Imagen de ejecución
-FROM eclipse-temurin:17-jdk
+# Etapa 2: Runtime con Java 21
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
+COPY --from=builder /app/target/*-SNAPSHOT.jar app.jar
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
 ```
 Usamos ```maven:...``` para compilar dentro del contenedor sin depender de Maven local.
 
-El ```./mvnw``` garantiza que se use la versión que el proyecto necesita.
+El ```./mvn``` garantiza que se use la versión que el proyecto necesita.
 
 En la segunda etapa solo copiamos el ```.jar``` → limpio y liviano.
 
@@ -144,14 +144,14 @@ En la segunda etapa solo copiamos el ```.jar``` → limpio y liviano.
 * ### Paso 4: **Creamos los archivos ```.env``` y ```docker-compose.yml```
 En el archivo ```.env``` ponemos lo siguiente:
 ```
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=admin123
-POSTGRES_DB=appdb
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=123456
+POSTGRES_DB=tendencias
 
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
-PGADMIN_DEFAULT_PASSWORD=admin123
+PGADMIN_DEFAULT_PASSWORD=admin
 
-DB_HOST=postgres
+DB_SERVER=postgres
 DB_PORT=5432
 ```
 y en el archivo docker-compose:
@@ -189,13 +189,13 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
+      DB_SERVER: postgres
+      DB_PORT: 5432
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       DB_NAME: ${POSTGRES_DB}
     ports:
-      - "8080:8080"
+      - "8080:8081"
     depends_on:
       - postgres
     networks:
@@ -203,7 +203,7 @@ services:
 
 volumes:
   pgdata:
-
+  
 networks:
   backend-net:
     driver: bridge
