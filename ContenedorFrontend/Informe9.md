@@ -99,7 +99,7 @@ app.listen(port, () => {
   console.log(`API escuchando en http://localhost:${port}`);
 });
 ```
-* ### Paso 2: **Creamos el proyectp frontend**
+* ### Paso 2: **Creamos el proyecto frontend**
 Con las tecnologías de React + Vite + Typescript, ejecutamos lo siguiente en la terminal:
 ```
 cd Documentos
